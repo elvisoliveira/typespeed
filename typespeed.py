@@ -1,13 +1,24 @@
 import sys
+from random import randint
+
+words = ["one", "two", "three"]
 
 def play():
-    print("Start the game")
+    global words
+    word = words[randint(0, len(words) - 1)]
+    print(f"Type the word: {word}")
+    response = input()
+    if response == word:
+        print("Correct!")
+    else:
+        print("Wrong!")
+    main()
 
 def config():
-    print("Config the game")
+    print("Configure the game")
 
 def main():
-    response = input("1 - Jogar\n2 - Alterar configurações do jogo\n3 - Sair\n")
+    response = input("1 - Play\n2 - Change configurations\n3 - Exit\n")
     if(response.strip() == "1"):
         play()
     elif(response.strip() == "2"):
